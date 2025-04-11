@@ -1,0 +1,94 @@
+.space-between {
+    height: 80px; /* Contrôle l'espace entre le tableau et le footer */
+}
+
+  
+
+/* le formulaire/corps de la page */
+.space-between {
+    height: 40px; /* Contrôle l'espace entre le tableau et le footer */
+}
+  body {
+    background-color: #1b1f3b; /* Bleu nuit pour le fond */
+    color: #e0e4f1; /* Couleur de texte plus douce */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+.formulaire{
+    background-color: rgba(44, 47, 94, 0.45); /* Fond transparent pour mettre en valeur le formulaire */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Ombre pour effet de profondeur */
+  }
+
+  h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #e0e4f1;
+}
+
+.container input[type="email"],
+.container input[type="password"],
+.container input[type="text"] {
+    width: 280px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #2c2f5e;
+    color: #e0e4f1;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.container input[type="email"]::placeholder,
+.container input[type="password"]::placeholder, 
+.container input[type="text"]::placeholder {
+    color: #aab2d5;
+}
+
+.container input[type="email"]:focus,
+.container input[type="password"]:focus,
+.container input[type="text"]:focus {
+    outline: none;
+    background-color: #3b3f6d;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+.container button {
+  justify-content: center;
+    width: 280px;
+    padding: 12px;
+    background-color: #3B82F6;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container button:hover {
+    background-color: #5290f5;
+}
+
+
+
+.container {
+  margin-bottom: 8px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
