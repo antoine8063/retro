@@ -22,21 +22,53 @@ async function chargerProjets(annee) {
     li.innerHTML = 
     `
     <a href="projet.php?id=${p.id}">${p.projet}</a>
-    <form method="POST" action="liste_tableau.php"> 
-    <input type="hidden" name="id" value="${p.id}">
-    <button type="submit" name="supprimer">supprimer</button>
-    </form>
+    <button class="supprimer" data-id="${p.id}">supprimer</button>
     `;
     ul.appendChild(li);
   });
   const li = document.createElement('li');
-    li.innerHTML = `<form method="POST" action="liste_tableau.php">
-      <input type="hidden" name="annee" value="${annee}">
+    li.innerHTML = `
       <input type="text" id="projet" name="projet" placeholder="nouveau projet" required>
-      <button type="submit" name="enregistrer">Enregistrer</button>
-    </form>`;
+      <button id="enregistrer" data-annee="${annee}">Enregistrer</button>`;
     ul.appendChild(li);
+    
+    document.getElementById('enregistrer').addEventListener('click', async (e) => {
+    const projet = document.getElementById('projet').value;
+    const annee = e.target.getAttribute('data-annee');
+    if (projet) {
+        await enregistrerProjet(annee, projet);
+        chargerProjets(annee); 
+    }
+    });
+
+    ul.addEventListener('click', async (e) => {
+      if (e.target && e.target.classList.contains('supprimer')) {
+        const id = e.target.getAttribute('data-id');
+        await supprimerProjet(id);
+        chargerProjets(annee); // Recharger les projets après suppression
+      }
+    });
 }
 
+
+async function enregistrerProjet(annee, projet) {
+  const res = await fetch('ajax_handler.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ action: 'enregistrer', annee, projet })
+  });
+  const data = await res.json();
+  alert(data.message);
+}
+
+async function supprimerProjet(id) {
+  const res = await fetch('ajax_handler.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ action: 'supprimer', id })
+  });
+  const data = await res.json();
+  alert(data.message);
+}
   
 chargerAnnees();
