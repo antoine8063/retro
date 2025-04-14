@@ -3,7 +3,7 @@ require_once "utils/database.php";
 $projet = $_GET['projet'] ?? '';
 $colonne = $_GET['colonne'] ?? '';
 $db = db_connect();
-$req = $db->prepare('SELECT expediteur , contenu 
+$req = $db->prepare('SELECT expediteur , contenu ,postit.id
 FROM postit
 JOIN tableau ON postit.id_tableau=tableau.id
 where tableau.projet = ? AND postit.colonne = ?');

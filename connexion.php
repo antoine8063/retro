@@ -29,7 +29,7 @@
             if (!empty($data)){
                 if ($data['mot_de_passe'] === $mdp){
                     $_SESSION['user_id'] = $data['id'];
-                    header('location:connexion.php');
+                    header('location:liste_tableau.php');
                     echo "c'est bon vous êtes connecté";
                 }else{
                     echo "mauvais mot de passe";

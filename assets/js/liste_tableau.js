@@ -45,30 +45,28 @@ async function chargerProjets(annee) {
       if (e.target && e.target.classList.contains('supprimer')) {
         const id = e.target.getAttribute('data-id');
         await supprimerProjet(id);
-        chargerProjets(annee); // Recharger les projets après suppression
+        chargerProjets(annee); 
       }
     });
 }
 
 
 async function enregistrerProjet(annee, projet) {
-  const res = await fetch('ajax_handler.php', {
+  const res = await fetch('supp_enr.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ action: 'enregistrer', annee, projet })
   });
   const data = await res.json();
-  alert(data.message);
 }
 
 async function supprimerProjet(id) {
-  const res = await fetch('ajax_handler.php', {
+  const res = await fetch('supp_enr.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ action: 'supprimer', id })
   });
   const data = await res.json();
-  alert(data.message);
 }
   
 chargerAnnees();

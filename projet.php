@@ -29,6 +29,7 @@ if (!$projet) {
         const projet = <?= json_encode($projet['projet']) ?>;
     </script>
 </head>
+<body>
 <ul id="colonne1"></ul>
 pas bien
 <div id="ajout_postit">

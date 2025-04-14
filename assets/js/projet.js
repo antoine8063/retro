@@ -11,14 +11,34 @@ async function chargerpostit() {
     postitc1.forEach(p => {
       const li = document.createElement('li');
       li.textContent = p.contenu;
+      li.innerHTML += `
+      <button class="supprimer" data-id="${p.id}">supprimer</button>`;
       ulc1.appendChild(li);
     });
     ulc2.innerHTML = '';
     postitc2.forEach(p => {
       const li = document.createElement('li');
       li.textContent = p.contenu;
+      li.innerHTML += `
+      <button class="supprimer" data-id="${p.id}">supprimer</button>`;
       ulc2.appendChild(li);
     });
+    ulc1.addEventListener('click', async (e) => {
+        if (e.target && e.target.classList.contains('supprimer')) {
+          const id = e.target.getAttribute('data-id');
+          await supprimerPostit(id);
+          chargerpostit(); // Recharger les projets après suppression
+        }
+      });
+    
+      ulc2.addEventListener('click', async (e) => {
+        if (e.target && e.target.classList.contains('supprimer')) {
+          const id = e.target.getAttribute('data-id');
+          await supprimerPostit(id);
+          chargerpostit(); // Recharger les projets après suppression
+        }
+      });
+    
   };
 
 
@@ -29,7 +49,8 @@ async function chargerpostit() {
     console.log(contenu);
     if (contenu) {
         await enregistrerPostit(contenu, colonne);
-        chargerpostit(); 
+        chargerpostit();
+        document.getElementById('contenu').value='';
     }
     });
 
@@ -40,4 +61,9 @@ async function enregistrerPostit(contenu, colonne) {
     console.log(data);
   }
 
+
+
+async function supprimerPostit(id) {
+    const res = await fetch('supprimer_post-it.php?id=' + encodeURIComponent(id));
+  }
   chargerpostit();
