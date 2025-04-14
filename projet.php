@@ -1,8 +1,8 @@
 <?php
+session_start();
 require_once "utils/database.php";
-
 $id = $_GET['id'] ?? null;
-
+$_SESSION['id'] = $id;
 if (!$id) {
     echo "Projet introuvable.";
     exit;
@@ -28,10 +28,19 @@ if (!$projet) {
     <script>
         const projet = <?= json_encode($projet['projet']) ?>;
     </script>
-    <script src="assets/js/projet.js"></script>
 </head>
 <ul id="colonne1"></ul>
-ce qui est bien
+pas bien
+<div id="ajout_postit">
+<input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
+<button id="ajouter" data-colonne=1>Ajouter</button>
+</div>
 <ul id="colonne2"></ul>
-ce qui est pas bien
+
+bien
+<div id="ajout_postit">
+<input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
+<button id="ajouter" data-colonne=2>Ajouter</button>
+</div>
+<script src="assets/js/projet.js"></script>
 </body>

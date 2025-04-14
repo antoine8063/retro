@@ -9,19 +9,35 @@ async function chargerpostit() {
     
     ulc1.innerHTML = '';
     postitc1.forEach(p => {
-        console.log(p.contenu);
       const li = document.createElement('li');
       li.textContent = p.contenu;
       ulc1.appendChild(li);
     });
     ulc2.innerHTML = '';
     postitc2.forEach(p => {
-        console.log(p.contenu);
       const li = document.createElement('li');
       li.textContent = p.contenu;
       ulc2.appendChild(li);
     });
-    
+  };
 
+
+  document.getElementById('ajout_postit').addEventListener('click', async (e) => {
+    const contenu = document.getElementById('contenu').value;
+    const colonne = e.target.getAttribute('data-colonne');
+    console.log(colonne);
+    console.log(contenu);
+    if (contenu) {
+        await enregistrerPostit(contenu, colonne);
+        chargerpostit(); 
+    }
+    });
+
+
+async function enregistrerPostit(contenu, colonne) {
+    const res = await fetch('nouveau_post-it.php?contenu=' + encodeURIComponent(contenu) + '&colonne=' + encodeURIComponent(colonne));
+    const data = await res.json();
+    console.log(data);
   }
+
   chargerpostit();
