@@ -30,11 +30,11 @@ if (!$projet) {
     </script>
 </head>
 <body>
-<ul id="colonne1"></ul>
 pas bien
-
-<ul id="colonne2"></ul>
+<ul id="colonne1"></ul>
 bien
+<ul id="colonne2"></ul>
+
 <div id="ajout_postit">
     <select id="colonne" name="colonne">
         <option value=1>Colonne 1</option>
