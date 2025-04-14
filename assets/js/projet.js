@@ -10,16 +10,16 @@ async function chargerpostit() {
     ulc1.innerHTML = '';
     postitc1.forEach(p => {
       const li = document.createElement('li');
-      li.textContent = p.contenu;
       li.innerHTML += `
+      <div type='text'> ${p.expediteur}: ${p.contenu}</div>
       <button class="supprimer" data-id="${p.id}">supprimer</button>`;
       ulc1.appendChild(li);
     });
     ulc2.innerHTML = '';
     postitc2.forEach(p => {
       const li = document.createElement('li');
-      li.textContent = p.contenu;
       li.innerHTML += `
+      <div type='text'> ${p.expediteur}: ${p.contenu}</div>
       <button class="supprimer" data-id="${p.id}">supprimer</button>`;
       ulc2.appendChild(li);
     });

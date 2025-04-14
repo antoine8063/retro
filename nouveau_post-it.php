@@ -9,12 +9,16 @@ if (empty($colonne) || empty($contenu)) {
     echo json_encode(['status' => 'error', 'message' => 'Colonne ou contenu manquant']);
     exit;
 }
-
+$req = $db->prepare('SELECT pseudo FROM utilisateur WHERE id = :id');
+$req->execute(["id" =>$_SESSION['user_id']]);
+$data = $req->fetch();
+$pseudo = $data['pseudo'] ?? '';
 try {
     $req = $db->prepare('INSERT INTO postit (`expediteur`, `contenu`, `colonne`, `id_tableau`) VALUES (?, ?, ?, ?)');
-    $req->execute([$_SESSION['user_id'], $contenu, $colonne, $id]);
+    $req->execute([$pseudo, $contenu, $colonne, $id]);
     echo json_encode(['status' => 'success', 'message' => 'Post-it ajouté avec succès']);
 } catch (PDOException $e) {
     echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
 }
 
+?>
