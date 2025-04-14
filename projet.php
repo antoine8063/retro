@@ -32,16 +32,17 @@ if (!$projet) {
 <body>
 <ul id="colonne1"></ul>
 pas bien
-<div id="ajout_postit">
-<input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
-<button id="ajouter" data-colonne=1>Ajouter</button>
-</div>
-<ul id="colonne2"></ul>
 
+<ul id="colonne2"></ul>
 bien
 <div id="ajout_postit">
-<input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
-<button id="ajouter" data-colonne=2>Ajouter</button>
+    <select id="colonne" name="colonne">
+        <option value=1>Colonne 1</option>
+        <option value=2>Colonne 2</option>
+    </select>
+    <input type="checkbox" id="anonyme" name="anonyme" value="anonyme"> anonyme
+    <input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
+    <button id="ajouter" >Ajouter</button>
 </div>
 <script src="assets/js/projet.js"></script>
 </body>

@@ -44,19 +44,18 @@ async function chargerpostit() {
 
   document.getElementById('ajout_postit').addEventListener('click', async (e) => {
     const contenu = document.getElementById('contenu').value;
-    const colonne = e.target.getAttribute('data-colonne');
-    console.log(colonne);
-    console.log(contenu);
+    const colonne = document.getElementById('colonne').value;
+    const anonyme = document.getElementById('anonyme').checked ? 'anonyme' : '';
     if (contenu) {
-        await enregistrerPostit(contenu, colonne);
+        await enregistrerPostit(contenu, colonne, anonyme);
         chargerpostit();
         document.getElementById('contenu').value='';
     }
     });
 
 
-async function enregistrerPostit(contenu, colonne) {
-    const res = await fetch('nouveau_post-it.php?contenu=' + encodeURIComponent(contenu) + '&colonne=' + encodeURIComponent(colonne));
+async function enregistrerPostit(contenu, colonne, anonyme) {
+    const res = await fetch('nouveau_post-it.php?contenu=' + encodeURIComponent(contenu) + '&colonne=' + encodeURIComponent(colonne) + '&anonyme=' + encodeURIComponent(anonyme));
     const data = await res.json();
     console.log(data);
   }
