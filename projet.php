@@ -1,3 +1,8 @@
+<script>
+    if (!sessionStorage.getItem('id')) {
+        window.location.href = "connexion.php";}
+</script>
+
 <?php
 session_start();
 require_once "utils/database.php";
@@ -26,6 +31,8 @@ if (!$projet) {
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($projet['projet']) ?></title>
     <script>
+        if (!sessionStorage.getItem('id')) {
+            window.location.href = "connexion.php";}
         const projet = <?= json_encode($projet['projet']) ?>;
     </script>
     <link rel="stylesheet" href="assets/css/projet.css">
