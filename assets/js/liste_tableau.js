@@ -52,7 +52,7 @@ async function chargerProjets(annee) {
 
 
 async function enregistrerProjet(annee, projet) {
-  const res = await fetch('supp_enr.php', {
+  const res = await fetch('suppr_enr.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ action: 'enregistrer', annee, projet })

@@ -1,8 +1,3 @@
-<script>
-    if (!sessionStorage.getItem('id')) {
-        window.location.href = "connexion.php";}
-</script>
-
 <?php
 session_start();
 require_once "utils/database.php";
