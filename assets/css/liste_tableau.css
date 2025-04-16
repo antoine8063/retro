@@ -22,6 +22,9 @@ div {
 }
 
 /* Styling for the lists */
+#finder {
+    align-items: flex-start;
+}
 #annees {
     list-style-type: none;
     padding: 0;
