@@ -1,0 +1,160 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container for the table layout */
+#tableau {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+    align-items: flex-start; /* Permet des hauteurs indépendantes */
+}
+
+/* Columns for "ce qu'il c'est bien passé" and "ce qu'il c'est mal passé" */
+.colonne1 {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.colonne2 {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Titles for the columns */
+.colonne-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+/* List items (Post-its) */
+.colonne1 li {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.colonne1 li:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect for list items */
+.colonne1 li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Post-it content */
+.colonne1 li div {
+    font-size: 14px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.colonne2 li {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.colonne2 li:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect for list items */
+.colonne2 li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Post-it content */
+.colonne2 li div {
+    font-size: 14px;
+    color: #333;
+    flex-grow: 1;
+}
+
+/* Buttons */
+button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e60000;
+}
+
+/* Form for adding post-its */
+#ajout_postit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+#ajout_postit select, #ajout_postit input[type="text"], #ajout_postit button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#ajout_postit input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#ajout_postit button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ajout_postit button:hover {
+    background-color: #218838;
+}

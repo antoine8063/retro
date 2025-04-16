@@ -28,21 +28,33 @@ if (!$projet) {
     <script>
         const projet = <?= json_encode($projet['projet']) ?>;
     </script>
+    <link rel="stylesheet" href="assets/css/projet.css">
 </head>
 <body>
-pas bien
-<ul id="colonne1"></ul>
-bien
-<ul id="colonne2"></ul>
+<div id="tableau">
+    <!-- Colonne 1 -->
+    <div class="colonne1">
+        <div class="colonne-title">Ce qu'il c'est bien passé</div>
+        <ul id="colonne1"></ul>
+    </div>
 
+    <!-- Colonne 2 -->
+    <div class="colonne2">
+        <div class="colonne-title">Ce qu'il c'est mal passé</div>
+        <ul id="colonne2"></ul>
+    </div>
+</div>
+
+<!-- Formulaire d'ajout -->
 <div id="ajout_postit">
     <select id="colonne" name="colonne">
-        <option value=1>Colonne 1</option>
-        <option value=2>Colonne 2</option>
+        <option value="1">Colonne 1</option>
+        <option value="2">Colonne 2</option>
     </select>
     <input type="checkbox" id="anonyme" name="anonyme" value="anonyme"> anonyme
     <input type="text" id="contenu" name="contenu" placeholder="Contenu du post-it">
-    <button id="ajouter" >Ajouter</button>
+    <button id="ajouter">Ajouter</button>
 </div>
 <script src="assets/js/projet.js"></script>
 </body>
+</html>
