@@ -1,5 +1,10 @@
 <?php
 session_start();
+var_dump($_SESSION['user_id']);
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.php');
+    exit;
+}
 require_once "utils/database.php";
 $id = $_GET['id'] ?? null;
 $_SESSION['id'] = $id;
@@ -26,8 +31,6 @@ if (!$projet) {
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($projet['projet']) ?></title>
     <script>
-        if (!sessionStorage.getItem('id')) {
-            window.location.href = "connexion.php";}
         const projet = <?= json_encode($projet['projet']) ?>;
     </script>
     <link rel="stylesheet" href="assets/css/projet.css">
