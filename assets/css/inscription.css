@@ -1,23 +1,22 @@
 .space-between {
-    height: 80px; /* Contrôle l'espace entre le tableau et le footer */
+    height: 80px; 
 }
 
   
 
-/* le formulaire/corps de la page */
 .space-between {
-    height: 40px; /* Contrôle l'espace entre le tableau et le footer */
+    height: 40px;
 }
   body {
-    background-color: #1b1f3b; /* Bleu nuit pour le fond */
-    color: #e0e4f1; /* Couleur de texte plus douce */
+    background-color: #1b1f3b; 
+    color: #e0e4f1;
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
   }
   
 .formulaire{
-    background-color: rgba(44, 47, 94, 0.45); /* Fond transparent pour mettre en valeur le formulaire */
+    background-color: rgba(44, 47, 94, 0.45); 
     display: flex;
     align-items: center;
     flex-direction: column;

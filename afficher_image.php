@@ -9,11 +9,9 @@ $req->execute(array("id" => $_SESSION['user_id']));
 $data = $req->fetch();
 
 if (!empty($data['pdp'])) {
-    // Définir le bon type MIME pour l'image
-    header("Content-Type: image/jpeg"); // Changez en "image/png" si nécessaire
+    header("Content-Type: image/jpeg"); 
     echo $data['pdp'];
 } else {
-    // Si aucune image n'est trouvée, afficher une image par défaut ou un message
     header("Content-Type: image/png");
     echo file_get_contents('pdpdefaut.png');
 }

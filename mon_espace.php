@@ -19,11 +19,9 @@ if (isset($_POST['changeemail'])) {
         $ancientemail = htmlspecialchars(trim($_POST['ancientemail']));
         $newemail = htmlspecialchars(trim($_POST['newemail']));
         $mdp = htmlspecialchars($_POST['mdp']);
-        //recup du compte
         $req = $db->prepare('SELECT email,mot_de_passe FROM utilisateur WHERE email = :email');
         $req->execute(array("email" => $_POST['ancientemail']));
         $data = $req->fetch();
-        //changement email
         if (!empty($data)){
             if ($data['mot_de_passe'] === $mdp){
                 $req = $db->prepare('UPDATE utilisateur SET email = :email WHERE email = :email');
@@ -42,7 +40,6 @@ if (isset($_POST['changeemail'])) {
         $newmdp = htmlspecialchars(trim($_POST['newmdp']));
         $newmdph = password_hash($newmdp, PASSWORD_DEFAULT);
         $email = htmlspecialchars($_POST['email']);
-        //recup du compte
         $req = $db->prepare('SELECT email,mot_de_passe FROM utilisateur WHERE email = :email');
         $req->execute(array("email" => $_POST['email']));
         $data = $req->fetch();
@@ -60,15 +57,12 @@ if (isset($_POST['changeemail'])) {
     }
 if (isset($_POST['changerpdp'])) {
     if (isset($_FILES['pdp']) && $_FILES['pdp']['error'] === UPLOAD_ERR_OK) {
-        // Vérifiez le type MIME du fichier
         $allowedTypes = ['image/jpeg', 'image/png'];
         $fileType = mime_content_type($_FILES['pdp']['tmp_name']);
         
         if (in_array($fileType, $allowedTypes)) {
-            // Lire le contenu du fichier
             $pdp = file_get_contents($_FILES['pdp']['tmp_name']);
             
-            // Mettre à jour la base de données
             $req = $db->prepare('UPDATE utilisateur SET pdp = :pdp WHERE id = :id');
             $req->execute([
                 "id" => $_SESSION['user_id'],

@@ -65,18 +65,14 @@
             session_start();
             require_once "utils/database.php";
             $db=db_connect();
-            // Vérifier si le formulaire a été soumis en vérifiant l'existence du bouton submit
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (isset($_POST['inscription'])) {
-                    // Valider et assainir les données entrées par l'utilisateur
                     $pseudo = htmlspecialchars(trim($_POST['pseudo']));
                     $email = htmlspecialchars(trim($_POST['email']));   
                     $mdp = htmlspecialchars(trim($_POST['mdp']));
                     $confirmermdp = htmlspecialchars(trim($_POST['confirmermdp']));
                     $mdph = password_hash($mdp, PASSWORD_DEFAULT);
-                    // Vérifier que les champs ne sont pas vides
                     if (!empty($pseudo) && !empty($email)) {
-                        // Valider l'email
                         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                             if (strlen($pseudo) >3){
                                 $req = $db->prepare('SELECT pseudo FROM utilisateur WHERE pseudo = :pseudo');
@@ -85,7 +81,6 @@
                                 if (empty($data)){
                                     $motif = "/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/";
                                     if (strlen($mdp)>8  && $mdp==$confirmermdp && preg_match($motif,$mdp)){
-                                        // Ici, vous pouvez ajouter le code pour insérer les données dans la base de données ou effectuer d'autres actions
                                         $req = $db->prepare("INSERT INTO utilisateur (pseudo,email,mot_de_passe,pdp) VALUES(:pseudo, :email, :mot_de_passe, :pdp);") ;
                                         $req->execute(array("pseudo" => $_POST['pseudo'],"email" => $_POST['email'],"mot_de_passe" => $mdph,"pdp" => file_get_contents('pdpdefaut.png')));
                                         header("Location: connexion.php");
