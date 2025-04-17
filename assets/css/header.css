@@ -1,0 +1,85 @@
+/* Global header styles */
+header {
+    position: fixed; /* Fixe le header en haut de la page */
+    top: 0;
+    left: 0;
+    width: 100%; /* Prend toute la largeur */
+    z-index: 1000; /* Assure que le header reste au-dessus des autres éléments */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Ajuste le padding pour un style compact */
+    background-color: #2c2f5e; /* Couleur de fond */
+    color: #e0e4f1; /* Couleur du texte */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour un effet visuel */
+}
+
+/* Navigation links */
+.nav-links {
+    list-style-type: none;
+    display: flex; /* Affiche les liens horizontalement */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin: 0 15px; /* Espacement entre les liens */
+}
+
+.nav-links li a {
+    color: #e0e4f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nav-links li a:hover {
+    color: #1b1f3b;
+    background-color: #f5a623;
+}
+
+/* Profile picture in the header */
+.nav-links img {
+    margin-left: 1045px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse le cercle */
+    border: 2px solid #007BFF; /* Bordure bleue autour de l'image */
+
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Affiche les liens verticalement */
+        background-color: #2c2f5e; /* Fond identique au header */
+        position: absolute;
+        top: 100%; /* Place le menu juste en dessous du header */
+        left: 0;
+        width: 100%; /* Prend toute la largeur */
+        padding: 10px 0;
+        display: none; /* Masque les liens par défaut */
+    }
+
+    .nav-links.active {
+        display: flex; /* Affiche le menu quand actif */
+    }
+
+    .menu-icon {
+        display: flex; /* Affiche le menu hamburger */
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-icon .line {
+        width: 25px;
+        height: 3px;
+        background-color: #e0e4f1;
+        margin: 3px 0;
+    }
+}

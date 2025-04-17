@@ -3,10 +3,14 @@
     <title>Mon Espace</title>
     <link rel="stylesheet" href="assets/css/mon_espace.css">
 </head>
+<body>
+
 <?php
+
 session_start();
 require_once "utils/database.php";
 $db = db_connect();
+include "partials/header.php";
 if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
@@ -161,3 +165,5 @@ if (isset($_POST['changerpdp'])) {
         header('location:connexion.php');
     }
     ?>
+
+</body>
