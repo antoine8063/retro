@@ -1,6 +1,7 @@
 <head>
   <?php
 session_start();
+include "partials/header.php";
 if (!isset($_SESSION['user_id'])) {
     header('Location: connexion.php');
     exit;
