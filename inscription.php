@@ -86,8 +86,8 @@
                                     $motif = "/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/";
                                     if (strlen($mdp)>8  && $mdp==$confirmermdp && preg_match($motif,$mdp)){
                                         // Ici, vous pouvez ajouter le code pour insérer les données dans la base de données ou effectuer d'autres actions
-                                        $req = $db->prepare("INSERT INTO utilisateur (pseudo,email,mot_de_passe) VALUES(:pseudo, :email, :mot_de_passe);") ;
-                                        $req->execute(array("pseudo" => $_POST['pseudo'],"email" => $_POST['email'],"mot_de_passe" => $mdph));
+                                        $req = $db->prepare("INSERT INTO utilisateur (pseudo,email,mot_de_passe,pdp) VALUES(:pseudo, :email, :mot_de_passe, :pdp);") ;
+                                        $req->execute(array("pseudo" => $_POST['pseudo'],"email" => $_POST['email'],"mot_de_passe" => $mdph,"pdp" => file_get_contents('pdpdefaut.png')));
                                         header("Location: connexion.php");
                                         exit();
                                     }else {

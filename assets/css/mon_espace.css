@@ -1,0 +1,126 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container for the form */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Form headings */
+form h2, form h3 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Buttons */
+form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Container for each input field */
+.container {
+    margin-bottom: 15px;
+}
+
+/* Logout button */
+form button[name="deconnexion"] {
+    background-color: #ff4d4d;
+}
+
+form button[name="deconnexion"]:hover {
+    background-color: #e60000;
+}
+
+
+
+
+/* Style pour le conteneur de la photo de profil */
+#pdp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Style pour l'image de profil */
+#pdp img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rend l'image circulaire */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse le cercle */
+    border: 2px solid #007BFF; /* Bordure bleue autour de l'image */
+    margin-bottom: 10px;
+}
+
+/* Style pour l'input de type fichier */
+#pdp input[type="file"] {
+    display: block;
+    margin: 10px auto;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#pdp input[type="file"]:hover {
+    border-color: #007BFF;
+}
+
+/* Style pour le bouton de changement de photo de profil */
+#pdp button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#pdp button:hover {
+    background-color: #0056b3;
+}
