@@ -2,7 +2,7 @@
     function db_connect() {
         
         $host= "http://localhost:8888";
-        $dbname = "retro coding";
+        $dbname = "retro";
         $user= "root";
         $password = "root";
 

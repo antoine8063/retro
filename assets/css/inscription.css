@@ -1,22 +1,17 @@
 .space-between {
-    height: 80px; 
-}
-
-  
-
-.space-between {
     height: 40px;
 }
-  body {
-    background-color: #1b1f3b; 
-    color: #e0e4f1;
+
+body {
+    background-color: #f4f4f9; /* Couleur de fond plus claire */
+    color: #333; /* Couleur de texte plus sombre */
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-  }
-  
-.formulaire{
-    background-color: rgba(44, 47, 94, 0.45); 
+}
+
+.formulaire {
+    background-color: #ffffff; /* Fond blanc pour le formulaire */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -26,15 +21,15 @@
     margin: 20px auto;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Ombre pour effet de profondeur */
-  }
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
+}
 
-  h2 {
+h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    color: #e0e4f1;
+    color: #333; /* Couleur de texte plus sombre */
 }
 
 .container input[type="email"],
@@ -44,32 +39,32 @@
     padding: 12px;
     border: none;
     border-radius: 25px;
-    background-color: #2c2f5e;
-    color: #e0e4f1;
+    background-color: #f0f0f5; /* Fond clair pour les champs */
+    color: #333; /* Texte sombre */
     font-size: 14px;
     text-align: center;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .container input[type="email"]::placeholder,
-.container input[type="password"]::placeholder, 
+.container input[type="password"]::placeholder,
 .container input[type="text"]::placeholder {
-    color: #aab2d5;
+    color: #888; /* Placeholder plus discret */
 }
 
 .container input[type="email"]:focus,
 .container input[type="password"]:focus,
 .container input[type="text"]:focus {
     outline: none;
-    background-color: #3b3f6d;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+    background-color: #e6e6f0; /* Fond légèrement plus clair au focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Ombre bleue plus douce */
 }
 
 .container button {
-  justify-content: center;
+    justify-content: center;
     width: 280px;
     padding: 12px;
-    background-color: #3B82F6;
+    background-color: #007BFF; /* Bleu plus vif */
     border: none;
     border-radius: 25px;
     color: #fff;
@@ -80,14 +75,12 @@
 }
 
 .container button:hover {
-    background-color: #5290f5;
+    background-color: #0056b3; /* Bleu plus foncé au survol */
 }
 
-
-
 .container {
-  margin-bottom: 8px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+    margin-bottom: 8px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
