@@ -2,7 +2,7 @@
 session_start();
 include "partials/header.php";
 if (!isset($_SESSION['user_id'])) {
-    header('Location: connexion.php');
+    header('Location: index.php');
     exit;
 }
 require_once "utils/database.php";

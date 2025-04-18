@@ -83,7 +83,7 @@
                                     if (strlen($mdp)>8  && $mdp==$confirmermdp && preg_match($motif,$mdp)){
                                         $req = $db->prepare("INSERT INTO utilisateur (pseudo,email,mot_de_passe,pdp) VALUES(:pseudo, :email, :mot_de_passe, :pdp);") ;
                                         $req->execute(array("pseudo" => $_POST['pseudo'],"email" => $_POST['email'],"mot_de_passe" => $mdph,"pdp" => file_get_contents('pdpdefaut.png')));
-                                        header("Location: connexion.php");
+                                        header("Location: index.php");
                                         exit();
                                     }else {
                                         echo "le mot de passe n'est pas valide";

@@ -12,7 +12,7 @@ require_once "utils/database.php";
 $db = db_connect();
 include "partials/header.php";
 if (!isset($_SESSION['user_id'])) {
-    header('Location: connexion.php');
+    header('Location: index.php');
     exit;
 }
 if (isset($_POST['changeemail'])) {
@@ -156,7 +156,7 @@ if (isset($_POST['changerpdp'])) {
     <?php
     if (isset($_POST['deconnexion'])) {
         session_destroy();
-        header('location:connexion.php');
+        header('location: index.php');
     }
     ?>
 
